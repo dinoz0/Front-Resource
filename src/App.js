@@ -1,5 +1,5 @@
 // composant
-import Navbar from './components/TopNavbar';
+import TopNavbar from './components/TopNavbar';
 // css
 import './App.css';
 
@@ -7,7 +7,7 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <Navbar/>
+      <TopNavbar/>
       
     </div>
   );
