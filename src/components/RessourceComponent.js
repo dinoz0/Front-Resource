@@ -3,16 +3,17 @@ import React from 'react'
 // css 
 import './RessourceComponent.css'
 
-const RessourceComponent = ({title, description,img}) => {
+const RessourceComponent = ({id,title, description,img}) => {
 
 
   return (
-    <div className="grid" href="https://openclassrooms.com/fr/">      
-        <img src={img} alt="" className="img" ></img>        
-          <p>{title}</p>
-          <p>{description}</p>
-        
-    </div>
+    <a href="/ressource/{id}"> 
+      <div id={id}className="grid" >         
+          <img src={img} alt="" className="img" ></img>        
+            <p>{title}</p>
+            <p>{description}</p>     
+      </div>
+    </a>
   )
 
 

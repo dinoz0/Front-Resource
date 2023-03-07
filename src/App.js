@@ -14,7 +14,7 @@ function App() {
     <div className="App">
 
       {ressource.map((ressource) => (
-        <RessourceComponent img={ressource.img} title={ressource.title} description={ressource.description}>
+        <RessourceComponent id={ressource.id} img={ressource.img} title={ressource.title} description={ressource.description}>
         </RessourceComponent>
       ))}
       
