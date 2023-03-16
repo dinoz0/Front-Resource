@@ -2,6 +2,8 @@
 import RessourceComponent from './components/RessourceComponent';
 // react
 import React, { useEffect, useRef, useState } from 'react'
+// react router
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 // axios
 import axios from 'axios'
 // css
