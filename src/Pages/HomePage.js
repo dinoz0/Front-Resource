@@ -38,8 +38,8 @@ function HomePage() {
         <div className="App">
 
             {ressource.map((ressource) => (
-                <RessourceComponent id={ressource.id} img={ressource.illustration} title={ressource.title} description={ressource.description}>
-                </RessourceComponent>
+                <RessourceComponent id={ressource.id} img={ressource.illustration} title={ressource.title} description={ressource.description} />
+
             ))}
 
 
