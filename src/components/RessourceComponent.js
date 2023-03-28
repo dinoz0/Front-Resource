@@ -1,8 +1,5 @@
 // react
 import React, { useEffect, useRef, useState } from 'react'
-// axios
-import axios, { Axios } from 'axios'
-
 // css 
 import './RessourceComponent.css'
 
@@ -11,6 +8,8 @@ const RessourceComponent = ({ id, title, description, img }) => {
   const rId = id
   const hreft = "/ressource/"
   const hrefId = hreft + rId
+
+  console.log(img)
 
   return (
     <a href={hrefId}>
