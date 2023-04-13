@@ -14,9 +14,9 @@
     cursor: pointer;
    
 
-  }
+}
 
-img{
+.img{
     width: 307px !important;
     max-height: 100px !important;
     border-bottom: solid 0 0 0 1px #e4e7eb;
