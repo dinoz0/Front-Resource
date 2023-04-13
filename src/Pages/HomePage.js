@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import axios from 'axios'
 // composant
 import RessourceComponent from '../components/RessourceComponent';
+import Navbar from '../components/Navbar';
 // css
 // import './App.css';
 // ressource
@@ -37,6 +38,7 @@ function HomePage() {
     return (
         <div className="App">
 
+            <Navbar />
             {ressource.map((ressource) => (
                 <RessourceComponent id={ressource.id} img={ressource.illustration} title={ressource.title} description={ressource.description} />
 

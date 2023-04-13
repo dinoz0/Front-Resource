@@ -1,0 +1,43 @@
+.navbar {
+    background-color: #03989e;
+    width: 100%;
+    z-index: 100;    
+}
+
+.nav:hover{
+    color: white;    
+}
+
+.container-fluid{
+    margin-left: 23%;
+}
+
+.navbar-brand{
+    color: #fabc5a;
+}
+
+.navbar-brand:hover{
+    color: white;
+}
+
+.nav-link{
+    color: #fabc5a;
+}
+
+
+@media (max-width: 800px) {
+
+    .Navbar {
+        background-color: #03989e;
+        width: 100%;
+        z-index: 100;    
+    }
+    .container-fluid{
+        margin-left: 5%;
+    }
+
+    .navbar-collapse{
+        margin-left: -4%;
+        text-align: left;
+    }
+}

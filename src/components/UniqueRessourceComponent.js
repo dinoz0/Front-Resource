@@ -2,6 +2,11 @@
 import React, { useEffect, useRef, useState } from 'react'
 //axios
 import axios from 'axios';
+//component
+import Navbar from '../components/Navbar';
+//css 
+import "./UniqueRessourceComponent.css"
+
 
 const UniqueRessourceComponent = () => {
 
@@ -20,7 +25,6 @@ const UniqueRessourceComponent = () => {
   }
 
   useEffect(() => {
-
     if (flag.current === false) {
       getRessource()
         .then(res => {
@@ -36,16 +40,27 @@ const UniqueRessourceComponent = () => {
 
   return (
     <div>
-      <div>
-        <img src="./images/tennis.png" alt="tennis"></img>
-        <h1>{ressource.title}</h1>
-        <h2>{ressource.description}</h2>
+      <Navbar />
+      <div className='container uniqueContainer'>
+        <div className='row'>
+          <div className='col-xs-12'>
+            <div className=' sessionTitleOption'>
+              <h1 className='uniqueTitle'>{ressource.title}</h1>
+              <p className='pOption'>{ressource.description}</p>
+            </div>
+            <img className="uniqueImg" src={ressource.illustration} alt="tennis"></img>
+
+            <div className='row uniqueContent'>
+              <div className='col-xs-12'>
+                <p>{ressource.content}</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div>
-        <p>{ressource.content}</p>
-      </div>
-    </div>
+    </div >
   )
+
 }
 
 export default UniqueRessourceComponent
