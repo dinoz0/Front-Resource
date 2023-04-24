@@ -3,8 +3,8 @@ import { Suspense } from 'react';
 // react router
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 // component
-import HomePage from './Pages/HomePage';
-import UniqueRessourceComponent from './components/UniqueRessourceComponent';
+
+import InscriptionComponent from './components/Register';
 // css
 import './App.css';
 
@@ -14,8 +14,8 @@ function App() {
       <div className="App">
         <BrowserRouter>
           <Routes>
-            <Route index element={<HomePage />} />
-            <Route path='/ressource/:id' element={<UniqueRessourceComponent />} />
+            <Route index element={<InscriptionComponent />} />
+            <Route path='/ressource/:id' element={<InscriptionComponent />} />
 
 
 
