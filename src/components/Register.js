@@ -96,6 +96,26 @@ onChange={e => setFirstname(e.target.value)}
 />
 </div>
 <div className='form-group'>
+<label htmlFor='email'>Email</label>
+<input
+type='mail'
+className='form-control'
+id='email'
+value={email}
+onChange={e => setEmail(e.target.value)}
+/>
+</div>
+<div className='form-group'>
+<label htmlFor='phonenumber'>Téléphone</label>
+<input
+type='phone'
+className='form-control'
+id='phonenumber'
+value={phonenumber}
+onChange={e => setPhonenumber(e.target.value)}
+/>
+</div>
+<div className='form-group'>
   <label htmlFor='birthday'>Date de naissance</label>
   <input
     type='date'
@@ -105,6 +125,29 @@ onChange={e => setFirstname(e.target.value)}
     onChange={e => setBirthday(e.target.value)}
   />
 </div>
+<div className='form-group'>
+  <label htmlFor='Password'>Mot de passe</label>
+  <input
+    type='text'
+    className='form-control'
+    id='password'
+    value={password}
+    onChange={e => setPassword(e.target.value)}
+  />
+</div>
+<div className='form-group'>
+  <label htmlFor='confirmPassword'>Confirmer le mot de passe</label>
+  <input
+    type='text'
+    className='form-control'
+    id='confirmPassword'
+    value={confirmPassword}
+    onChange={e => setConfirmPassword(e.target.value)}
+  />
+</div>
+<button type='submit' className='btn btn-primary'>
+  S'inscrire
+</button>
 </form>
 </div>
 </div>
