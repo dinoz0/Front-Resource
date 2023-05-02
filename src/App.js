@@ -4,7 +4,7 @@ import { Suspense } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 // component
 
-import UserProfile from './components/UpdateUser';
+import CommentSection from './components/Comment';
 // css
 import './App.css';
 
@@ -14,8 +14,8 @@ function App() {
       <div className="App">
         <BrowserRouter>
           <Routes>
-            <Route index element={<UserProfile />} />
-            <Route path='/ressource/:id' element={<UserProfile />} />
+            <Route index element={<CommentSection />} />
+            <Route path='/ressource/:id' element={<CommentSection />} />
 
 
 
