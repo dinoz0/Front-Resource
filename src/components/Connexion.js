@@ -10,16 +10,21 @@ const LoginComponent = () => {
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    const userData = { username: username, password: password };
-    axios.get('https://localhost:7196/swagger/User/', userData)
+    if (!username || !password) {
+      setError("Veuillez remplir tous les champs");
+      return;
+    }
+    axios.get(`https://localhost:7196/swagger/User?username=${username}&password=${password}`)
       .then(response => {
-        if (response.status === 200) {
-          console.log("Vous etes connecté!");
+        if (response.status === 200 && response.data.length > 0) {
+          console.log("Vous êtes connecté !");
+        } else {
+          setError("Pseudo ou mot de passe incorrect");
         }
       })
       .catch(error => {
-        console.log("Erreur de conexion ", error);
-        setError("Pseudo ou mot de passe incorrect");
+        console.log("Erreur de connexion", error);
+        setError("Une erreur est survenue, veuillez réessayer plus tard");
       });
   };
 
