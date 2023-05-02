@@ -11,16 +11,15 @@ const LoginComponent = () => {
   const handleFormSubmit = (event) => {
     event.preventDefault();
     const userData = { username: username, password: password };
-    axios.post('https://localhost:7196/swagger/User/authenticate', userData)
+    axios.get('https://localhost:7196/swagger/User/', userData)
       .then(response => {
         if (response.status === 200) {
-          console.log("User authenticated successfully!");
-          // Redirect user to home page or another secure page
+          console.log("Vous etes connecté!");
         }
       })
       .catch(error => {
-        console.log("User authentication failed: ", error);
-        setError("Invalid username or password");
+        console.log("Erreur de conexion ", error);
+        setError("Pseudo ou mot de passe incorrect");
       });
   };
 
@@ -33,7 +32,7 @@ const LoginComponent = () => {
             <form onSubmit={handleFormSubmit}>
               {error && <div className='alert alert-danger'>{error}</div>}
               <div className='form-group'>
-                <label htmlFor='username'>Username</label>
+                <label htmlFor='username'>Pseudo</label>
                 <input
                   type='text'
                   className='form-control'
@@ -43,7 +42,7 @@ const LoginComponent = () => {
                 />
               </div>
               <div className='form-group'>
-                <label htmlFor='password'>Password</label>
+                <label htmlFor='password'>Mot de passe </label>
                 <input
                   type='password'
                   className='form-control'
