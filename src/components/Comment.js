@@ -11,7 +11,7 @@ const CommentSection = ({ resourceId, currentUser }) => {
   useEffect(() => {
     const fetchComments = async () => {
       try {
-        const response = await axios.get(`/api/comment?resourceId=${resourceId}`);
+        const response = await axios.get(`https://localhost:7196/swagger/comment?resourceId=${resourceId}`);
         setComments(response.data);
       } catch (error) {
         console.error(error);
