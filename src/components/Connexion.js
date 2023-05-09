@@ -4,28 +4,31 @@ import Navbar from '../components/Navbar';
 import './Connexion.css';
 
 const LoginComponent = () => {
-  const [username, setUsername] = useState('');
+  const [name, setName] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    if (!username || !password) {
+    if (!name || !password) {
       setError("Veuillez remplir tous les champs");
       return;
     }
-    axios.get(`https://localhost:7196/swagger/User?username=${username}&password=${password}`)
+    axios.get(`https://localhost:7196/api/User/${name}/${password}`)
       .then(response => {
-        if (response.status === 200 && response.data.length > 0) {
+        console.log(response.data);
+        if (response.data) {
           console.log("Vous êtes connecté !");
-        } else {
-          setError("Pseudo ou mot de passe incorrect");
         }
       })
       .catch(error => {
-        console.log("Erreur de connexion", error);
-        setError("Une erreur est survenue, veuillez réessayer plus tard");
-      });
+  if (error.response && error.response.status === 404) {
+    setError("Pseudo ou mot de passe incorrect");
+  } else {
+    console.log("Erreur de connexion", error);
+    setError("Une erreur est survenue, veuillez réessayer plus tard");
+  }
+});
   };
 
   return (
@@ -42,8 +45,8 @@ const LoginComponent = () => {
                   type='text'
                   className='form-control'
                   id='username'
-                  value={username}
-                  onChange={e => setUsername(e.target.value)}
+                  value={name}
+                  onChange={e => setName(e.target.value)}
                 />
               </div>
               <div className='form-group'>
@@ -56,7 +59,7 @@ const LoginComponent = () => {
                   onChange={e => setPassword(e.target.value)}
                 />
               </div>
-              <button type='submit' className='btn btn-primary'>
+              <button type='submit' className='btn btn-primary' onClick={() => setError("")}>
                 Login
               </button>
             </form>

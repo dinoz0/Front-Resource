@@ -52,9 +52,10 @@ const userData = {
   birthday: birthday,
   phonenumber: phonenumber,
   email: email,
-  password: password
+  password: password,
+  role:1
 };
-axios.post('https://localhost:7196/swagger/User/register', userData)
+axios.post('https://localhost:7196/api/User', userData)
   .then(response => {
     if (response.status === 200) {
       console.log("User registered successfully!");

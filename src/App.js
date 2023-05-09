@@ -4,7 +4,7 @@ import { Suspense } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 // component
 
-import LoginComponent from './components/Connexion';
+import  LoginComponent from './components/Connexion';
 // css
 import './App.css';
 
