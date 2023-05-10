@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import Navbar from '../components/Navbar';
 import './Connexion.css';
+import { Link } from 'react-router-dom'
 
 const LoginComponent = () => {
   const [name, setName] = useState('');
@@ -14,21 +15,24 @@ const LoginComponent = () => {
       setError("Veuillez remplir tous les champs");
       return;
     }
-    axios.get(`https://localhost:7196/api/User/${name}/${password}`)
+
+    const user = {
+      name: name,
+      passwordHash: password
+    };
+
+    axios.post('https://localhost:7196/api/User/login', user)
       .then(response => {
         console.log(response.data);
-        if (response.data) {
+        if (response.data.token) {
           console.log("Vous êtes connecté !");
+          // Ajoutez ici le code pour stocker le token dans votre application
         }
       })
       .catch(error => {
-  if (error.response && error.response.status === 404) {
-    setError("Pseudo ou mot de passe incorrect");
-  } else {
-    console.log("Erreur de connexion", error);
-    setError("Une erreur est survenue, veuillez réessayer plus tard");
-  }
-});
+        console.log(error);
+        setError("Pseudo ou mot de passe incorrect");
+      });
   };
 
   return (
@@ -66,6 +70,9 @@ const LoginComponent = () => {
           </div>
         </div>
       </div>
+      <Link to={"./Inscription"}>
+        Pas de compte? Inscrivez vous
+      </Link>
     </div>
   );
 };

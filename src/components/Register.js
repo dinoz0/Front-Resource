@@ -18,57 +18,57 @@ event.preventDefault();
 
 // Vérification des champs vides
 if (!name || !firstname || !birthday || !phonenumber || !email || !password || !confirmPassword) {
-  setError("Tous les champs doivent être remplis");
-  return;
+setError("Tous les champs doivent être remplis");
+return;
 }
 
 // Vérification du format du téléphone
 if (!/^[0-9]{10}$/.test(phonenumber)) {
-  setError("Le format du numéro de téléphone n'est pas valide");
-  return;
+setError("Le format du numéro de téléphone n'est pas valide");
+return;
 }
 
 // Vérification du format de l'email
-if (!/\S+@\S+\.\S+/.test(email)) {
-  setError("Le format de l'email n'est pas valide");
-  return;
+if (!/\S+@\S+.\S+/.test(email)) {
+setError("Le format de l'email n'est pas valide");
+return;
 }
 
 // Vérification de la conformité des mots de passe
 if (password !== confirmPassword) {
-  setError("Les mots de passe ne correspondent pas");
-  return;
+setError("Les mots de passe ne correspondent pas");
+return;
 }
 
 // Vérification de la conformité du mot de passe (minimum 8 caractères, une majuscule, une minuscule et un chiffre)
-if (!/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/.test(password)) {
-  setError("Le mot de passe doit contenir minimum 8 caractères, une majuscule, une minuscule et un chiffre");
-  return;
+if (!/(?=.\d)(?=.[a-z])(?=.*[A-Z]).{8,}/.test(password)) {
+setError("Le mot de passe doit contenir minimum 8 caractères, une majuscule, une minuscule et un chiffre");
+return;
 }
 
 const userData = {
-  name: name,
-  firstname: firstname,
-  birthday: birthday,
-  phonenumber: phonenumber,
-  email: email,
-  password: password,
-  role:1
+name: name,
+firstname: firstname,
+birthday: birthday,
+phonenumber: phonenumber,
+email: email,
+passwordHash: password
 };
-axios.post('https://localhost:7196/api/User', userData)
-  .then(response => {
-    if (response.status === 200) {
-      console.log("User registered successfully!");
-      // Redirect user to login page
-    }
-  })
-  .catch(error => {
-    console.log("User registration failed: ", error);
-    setError("L'inscription a échoué");
-  });
+axios.post('https://localhost:7196/api/User/register', userData)
+.then(response => {
+if (response.status === 200) {
+console.log("User registered successfully!");
+// Redirect user to login page
+}
+})
+.catch(error => {
+console.log("User registration failed: ", error);
+setError("L'inscription a échoué");
+});
 };
 
 return (
+
 <div>
 <Navbar />
 <div className='container uniqueContainer'>
