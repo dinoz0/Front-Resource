@@ -18,43 +18,53 @@ event.preventDefault();
 
 // Vérification des champs vides
 if (!name || !firstname || !birthday || !phonenumber || !email || !password || !confirmPassword) {
-setError("Tous les champs doivent être remplis");
-return;
+  setError("Tous les champs doivent être remplis");
+  return;
 }
 
 // Vérification du format du téléphone
 if (!/^[0-9]{10}$/.test(phonenumber)) {
-setError("Le format du numéro de téléphone n'est pas valide");
-return;
+  setError("Le format du numéro de téléphone n'est pas valide");
+  return;
 }
 
 // Vérification du format de l'email
 if (!/\S+@\S+.\S+/.test(email)) {
-setError("Le format de l'email n'est pas valide");
-return;
+  setError("Le format de l'email n'est pas valide");
+  return;
 }
 
 // Vérification de la conformité des mots de passe
 if (password !== confirmPassword) {
-setError("Les mots de passe ne correspondent pas");
-return;
+  setError("Les mots de passe ne correspondent pas");
+  return;
 }
 
 // Vérification de la conformité du mot de passe (minimum 8 caractères, une majuscule, une minuscule et un chiffre)
-if (!/(?=.\d)(?=.[a-z])(?=.*[A-Z]).{8,}/.test(password)) {
-setError("Le mot de passe doit contenir minimum 8 caractères, une majuscule, une minuscule et un chiffre");
-return;
-}
+/*if (!/(?=.\d)(?=.[a-z])(?=.*[A-Z]).{8,}/.test(password)) {
+  setError("Le mot de passe doit contenir minimum 8 caractères, une majuscule, une minuscule et un chiffre");
+  return;
+}*/
 
-const userData = {
+const model = {
 name: name,
 firstname: firstname,
 birthday: birthday,
 phonenumber: phonenumber,
 email: email,
-passwordHash: password
+username:email,
+passwordHash: password,
+id_role:1,
+role: {
+    id: "string",
+    name: "string",
+    normalizedName: "string",
+    concurrencyStamp: "string",
+    roleId: 1,
+    role_name: "string"
+  }
 };
-axios.post('https://localhost:7196/api/User/register', userData)
+axios.post('https://localhost:7196/api/User/register', model)
 .then(response => {
 if (response.status === 200) {
 console.log("User registered successfully!");

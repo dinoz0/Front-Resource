@@ -5,20 +5,27 @@ import './Connexion.css';
 import { Link } from 'react-router-dom'
 
 const LoginComponent = () => {
-  const [name, setName] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [name, setName] = useState('');
+  const [firstname, setFirstname] = useState('');
+  const [phonenumber, setPhonenumber] = useState('');
   const [error, setError] = useState('');
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    if (!name || !password) {
+    if (!username || !password) {
       setError("Veuillez remplir tous les champs");
       return;
     }
 
     const user = {
+      username: username,
+      passwordHash: password,
       name: name,
-      passwordHash: password
+      firstname: firstname,
+      phonenumber:phonenumber,
+      role:1
     };
 
     axios.post('https://localhost:7196/api/User/login', user)
@@ -49,9 +56,39 @@ const LoginComponent = () => {
                   type='text'
                   className='form-control'
                   id='username'
-                  value={name}
-                  onChange={e => setName(e.target.value)}
+                  value={username}
+                  onChange={e => setUsername(e.target.value)}
                 />
+              </div>
+              <div className='form-group'>
+              <label htmlFor='name'>Nom</label>
+              <input
+              type='text'
+              className='form-control'
+              id='name'
+              value={name}
+              onChange={e => setName(e.target.value)}
+              />
+              </div>
+              <div className='form-group'>
+              <label htmlFor='firstname'>Prénom</label>
+              <input
+              type='text'
+              className='form-control'
+              id='firstname'
+              value={firstname}
+              onChange={e => setFirstname(e.target.value)}
+              />
+              </div>
+              <div className='form-group'>
+              <label htmlFor='phonenumber'>Téléphone</label>
+              <input
+              type='phone'
+              className='form-control'
+              id='phonenumber'
+              value={phonenumber}
+              onChange={e => setPhonenumber(e.target.value)}
+              />
               </div>
               <div className='form-group'>
                 <label htmlFor='password'>Mot de passe </label>
@@ -63,6 +100,8 @@ const LoginComponent = () => {
                   onChange={e => setPassword(e.target.value)}
                 />
               </div>
+
+
               <button type='submit' className='btn btn-primary' onClick={() => setError("")}>
                 Login
               </button>
