@@ -19,16 +19,24 @@ const LoginComponent = () => {
       return;
     }
 
-    const user = {
+    const model = {
       username: username,
-      passwordHash: password,
+      PasswordHash: password,
       name: name,
       firstname: firstname,
-      phonenumber:phonenumber,
-      role:1
+      Phonenumber:phonenumber,
+
+      role: {
+          id: "1",
+          name: "string",
+
+          concurrencyStamp: "string",
+          //roleId: 1,
+          role_name: "string"
+        }
     };
 
-    axios.post('https://localhost:7196/api/User/login', user)
+    axios.post('https://localhost:7196/api/User/login', model)
       .then(response => {
         console.log(response.data);
         if (response.data.token) {

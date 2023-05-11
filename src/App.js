@@ -4,7 +4,7 @@ import { Suspense } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 // component
 
-import  InscriptionComponent from './components/Register';
+import  LoginComponent from './components/Connexion';
 // css
 import './App.css';
 
@@ -14,8 +14,8 @@ function App() {
       <div className="App">
         <BrowserRouter>
           <Routes>
-            <Route index element={<InscriptionComponent />} />
-            <Route path='/ressource/:id' element={<InscriptionComponent />} />
+            <Route index element={<LoginComponent />} />
+            <Route path='/ressource/:id' element={<LoginComponent />} />
 
 
 
