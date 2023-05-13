@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import Navbar from "../components/Navbar";
 import "./Register.css";
+import { Link } from 'react-router-dom'
 
 const InscriptionComponent = () => {
     const [name, setName] = useState("");
@@ -187,6 +188,9 @@ const InscriptionComponent = () => {
                             </button>
                         </form>
                     </div>
+                    <Link to={"/connexion"}>
+                      Vous avez déjà un compte? Connectez vous
+                    </Link>
                 </div>
             </div>
         </div>

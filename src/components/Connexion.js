@@ -7,9 +7,9 @@ import { Link } from 'react-router-dom'
 const LoginComponent = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [name, setName] = useState('');
+  /*const [name, setName] = useState('');
   const [firstname, setFirstname] = useState('');
-  const [phonenumber, setPhonenumber] = useState('');
+  const [phonenumber, setPhonenumber] = useState('');*/
   const [error, setError] = useState('');
 
   const handleFormSubmit = (event) => {
@@ -22,18 +22,7 @@ const LoginComponent = () => {
     const model = {
       username: username,
       PasswordHash: password,
-      name: name,
-      firstname: firstname,
-      Phonenumber:phonenumber,
 
-      role: {
-          id: "1",
-          name: "string",
-
-          concurrencyStamp: "string",
-          //roleId: 1,
-          role_name: "string"
-        }
     };
 
     axios.post('https://localhost:7196/api/User/login', model)
@@ -68,36 +57,8 @@ const LoginComponent = () => {
                   onChange={e => setUsername(e.target.value)}
                 />
               </div>
-              <div className='form-group'>
-              <label htmlFor='name'>Nom</label>
-              <input
-              type='text'
-              className='form-control'
-              id='name'
-              value={name}
-              onChange={e => setName(e.target.value)}
-              />
-              </div>
-              <div className='form-group'>
-              <label htmlFor='firstname'>Prénom</label>
-              <input
-              type='text'
-              className='form-control'
-              id='firstname'
-              value={firstname}
-              onChange={e => setFirstname(e.target.value)}
-              />
-              </div>
-              <div className='form-group'>
-              <label htmlFor='phonenumber'>Téléphone</label>
-              <input
-              type='phone'
-              className='form-control'
-              id='phonenumber'
-              value={phonenumber}
-              onChange={e => setPhonenumber(e.target.value)}
-              />
-              </div>
+
+
               <div className='form-group'>
                 <label htmlFor='password'>Mot de passe </label>
                 <input
@@ -117,7 +78,7 @@ const LoginComponent = () => {
           </div>
         </div>
       </div>
-      <Link to={"./Inscription"}>
+      <Link to={"/inscription"}>
         Pas de compte? Inscrivez vous
       </Link>
     </div>

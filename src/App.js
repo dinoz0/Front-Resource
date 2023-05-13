@@ -1,33 +1,25 @@
-// react
-import { Suspense } from 'react';
-// react router
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-// component
 
-import  LoginComponent from './components/Connexion';
-// css
+import { Suspense } from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import LoginComponent from './components/Connexion';
+import InscriptionComponent from './components/Register';
 import './App.css';
 
 function App() {
-  return (
-    <Suspense fallback={null}>
-      <div className="App">
-        <BrowserRouter>
-          <Routes>
-            <Route index element={<LoginComponent />} />
-            <Route path='/ressource/:id' element={<LoginComponent />} />
+return (
+<Suspense fallback={null}>
+<div className="App">
+<BrowserRouter>
+<Routes>
+<Route path="/" element={<LoginComponent />} />
+<Route path="/inscription" element={<InscriptionComponent />} />
+<Route path="/connexion" element={<LoginComponent />} />
 
-
-
-
-          </Routes>
-
-
-        </BrowserRouter>
-      </div>
-    </Suspense>
-
-  );
+</Routes>
+</BrowserRouter>
+</div>
+</Suspense>
+);
 }
 
 export default App;
