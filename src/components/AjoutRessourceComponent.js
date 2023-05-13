@@ -67,17 +67,16 @@ const AddRessourceComponent = () => {
             element:"test",
             relation: {
 
-              relation_name: "string"
+              relation_name:relation
             },
             category: {
-              category_name: "string"
+              category_name: category
             },
             typeR: {
-              type_name: "string"
+              type_name: typeR
             },
         };
-        axios
-            .post("https://localhost:7196/api/Resource", model)
+        axios.post("https://localhost:7196/api/Resource", model)
             .then((response) => {
                 if (response.status === 200) {
                     console.log("Ajout de Ressource réussi");

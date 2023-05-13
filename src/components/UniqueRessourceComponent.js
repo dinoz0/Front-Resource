@@ -4,7 +4,8 @@ import React, { useEffect, useRef, useState } from 'react'
 import axios from 'axios';
 //component
 import Navbar from '../components/Navbar';
-//css 
+import CommentSection from '../components/Comment';
+//css
 import "./UniqueRessourceComponent.css"
 
 
@@ -55,11 +56,14 @@ const UniqueRessourceComponent = () => {
                 <p>{ressource.content}</p>
               </div>
             </div>
+
+            <CommentSection resourceId={idRessource} currentUser={null} />
+
           </div>
         </div>
       </div>
-    </div >
-  )
+    </div>
+  );
 
 }
 
