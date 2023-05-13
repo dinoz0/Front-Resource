@@ -5,6 +5,8 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 // component
 import HomePage from './Pages/HomePage';
 import UniqueRessourceComponent from './components/UniqueRessourceComponent';
+import AddRessourceComponent from './components/AjoutRessourceComponent';
+
 // css
 import './App.css';
 
@@ -16,6 +18,8 @@ function App() {
           <Routes>
             <Route index element={<HomePage />} />
             <Route path='/ressource/:id' element={<UniqueRessourceComponent />} />
+            <Route path='/ajoutRessource' element={<AddRessourceComponent />} />
+
 
 
 
