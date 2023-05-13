@@ -6,6 +6,10 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import HomePage from './Pages/HomePage';
 import UniqueRessourceComponent from './components/UniqueRessourceComponent';
 import AddRessourceComponent from './components/AjoutRessourceComponent';
+import LoginComponent from './components/Connexion';
+import InscriptionComponent from './components/Inscription';
+
+
 
 // css
 import './App.css';
@@ -19,6 +23,10 @@ function App() {
             <Route index element={<HomePage />} />
             <Route path='/ressource/:id' element={<UniqueRessourceComponent />} />
             <Route path='/ajoutRessource' element={<AddRessourceComponent />} />
+            <Route path='/connexion' element={<LoginComponent />} />
+
+            <Route path='/inscription' element={<InscriptionComponent />} />
+
 
 
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import axios from "axios";
 import Navbar from "../components/Navbar";
 
@@ -8,11 +8,37 @@ const AddRessourceComponent = () => {
     const [illustration, setIllustration] = useState("");
     const [content, setContent] = useState("");
     const [category, setCategory] = useState("");
-    const [type, setTypeR] = useState("");
+    const [typeR, setTypeR] = useState("");
     const [relation, setRelation] = useState("");
 
     const [error, setError] = useState("");
+    const [categories, setCategories] = useState([]);
+    const [typesRessource, setTypesRessource] = useState([]);
+    const [relations, setRelations] = useState([]);
 
+    useEffect(() => {
+      axios.get("https://localhost:7196/api/Category").then((response) => {
+        if (response.status === 200) {
+          setCategories(response.data);
+          console.log(response.data);
+
+        }
+      });
+
+      axios.get("https://localhost:7196/api/TypeR").then((response) => {
+      if (response.status === 200) {
+        setTypesRessource(response.data);
+        console.log(response.data);
+      }
+    });
+
+      axios.get("https://localhost:7196/api/Relation").then((response) => {
+        if (response.status === 200) {
+          setRelations(response.data);
+          console.log(response.data);
+        }
+      });
+    }, []);
     const handleFormSubmit = (event) => {
         event.preventDefault();
 
@@ -23,7 +49,7 @@ const AddRessourceComponent = () => {
             !illustration ||
             !content ||
             !category ||
-            !type ||
+            !typeR ||
             !relation
         ) {
             setError("Tous les champs doivent être remplis");
@@ -37,9 +63,18 @@ const AddRessourceComponent = () => {
             description:description,
             illustration:illustration,
             content:content,
-            id_category:category,
-            id_type:type,
-            id_relation:relation
+
+            element:"test",
+            relation: {
+
+              relation_name: "string"
+            },
+            category: {
+              category_name: "string"
+            },
+            typeR: {
+              type_name: "string"
+            },
         };
         axios
             .post("https://localhost:7196/api/Resource", model)
@@ -111,31 +146,52 @@ const AddRessourceComponent = () => {
                                 />
                             </div>
                             <div className="form-group">
-                                <label htmlFor="category">Catégorie</label>
-                                <select className="form-control" id="category" value={category} onChange={(e) => setCategory(e.target.value)}>
-                                    <option value="1">Catégorie 1</option>
-                                    <option value="2">Catégorie 2</option>
-                                    <option value="3">Catégorie 3</option>
-                                    <option value="4">Catégorie 4</option>
-                                </select>
+                              <label htmlFor="category">Catégorie</label>
+                              <select
+                                className="form-control"
+                                id="category"
+                                value={category}
+                                onChange={(e) => setCategory(e.target.value)}
+                              >
+                                {categories.map((category) => (
+                                  <option key={category.id} value={category.id}>
+                                    {category.category_name}
+                                  </option>
+                                ))}
+                              </select>
                             </div>
+
+
                             <div className="form-group">
-                                <label htmlFor="category">Type de Ressource</label>
-                                <select className="form-control" id="typeRessource" value={type} onChange={(e) => setTypeR(e.target.value)}>
-                                    <option value="1">Catégorie 1</option>
-                                    <option value="2">Catégorie 2</option>
-                                    <option value="3">Catégorie 3</option>
-                                    <option value="4">Catégorie 4</option>
-                                </select>
+                              <label htmlFor="typeR">Type de Ressource</label>
+                              <select
+                                className="form-control"
+                                id="typeR"
+                                value={typeR}
+                                onChange={(e) => setTypeR(e.target.value)}
+                              >
+                                {typesRessource.map((typeR) => (
+                                  <option key={typeR.id} value={typeR.id}>
+                                    {typeR.type_name}
+                                  </option>
+                                ))}
+                              </select>
                             </div>
+
                             <div className="form-group">
-                                <label htmlFor="category">Type de Relation</label>
-                                <select className="form-control" id="relation" value={relation} onChange={(e) => setRelation(e.target.value)}>
-                                    <option value="1">Catégorie 1</option>
-                                    <option value="2">Catégorie 2</option>
-                                    <option value="3">Catégorie 3</option>
-                                    <option value="4">Catégorie 4</option>
-                                </select>
+                              <label htmlFor="relation">Type de Relation</label>
+                              <select
+                                className="form-control"
+                                id="relation"
+                                value={relation}
+                                onChange={(e) => setRelation(e.target.value)}
+                              >
+                                {relations.map((relation) => (
+                                  <option key={relation.id} value={relation.id}>
+                                    {relation.relation_name}
+                                  </option>
+                                ))}
+                              </select>
                             </div>
                             <button type="submit" className="btn btn-primary">
                                 Ajouter une Ressource
