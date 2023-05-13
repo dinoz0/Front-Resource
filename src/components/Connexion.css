@@ -1,0 +1,40 @@
+
+
+.container {
+  background-color: #03989e;
+  border-radius: 10px;
+  width: 25%;
+  padding: 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top:1%;
+}
+
+.form-group {
+  margin-bottom: 2%;
+
+}
+
+.form-control {
+  border-radius: 0.5%;
+}
+
+.btn-primary {
+  background-color: #fabc5a;
+  border-color: #fabc5a;
+  border-radius: 0.5%;
+}
+.alert-danger {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+  border-radius: 0.5%;
+  padding: 0.75% 1.25%;
+  margin-bottom: 1%;
+}
+
+.form-control {
+  border-radius: 5px; /* ajustez la valeur de votre choix */
+}

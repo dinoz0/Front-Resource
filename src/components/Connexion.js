@@ -40,9 +40,11 @@ const LoginComponent = () => {
   };
 
   return (
+
     <div>
       <Navbar />
-      <div className='container uniqueContainer'>
+
+      <div className='container'>
         <div className='row'>
           <div className='col-xs-12'>
             <form onSubmit={handleFormSubmit}>

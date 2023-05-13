@@ -17,43 +17,29 @@ const InscriptionComponent = () => {
     const handleFormSubmit = (event) => {
         event.preventDefault();
 
-        // Vérification des champs vides
-        if (
-            !name ||
-            !firstname ||
-            !birthday ||
-            !phonenumber ||
-            !email ||
-            !password ||
-            !confirmPassword
-        ) {
+        if (!name ||!firstname ||!birthday ||!phonenumber ||!email || !password ||!confirmPassword)
+        {
             setError("Tous les champs doivent être remplis");
             return;
         }
 
-        // Vérification du format du téléphone
-        if (!/^[0-9]{10}$/.test(phonenumber)) {
+        if (!/^[0-9]{10}$/.test(phonenumber))
+        {
             setError("Le format du numéro de téléphone n'est pas valide");
             return;
         }
 
-        // Vérification du format de l'email
-        if (!/\S+@\S+.\S+/.test(email)) {
+        if (!/\S+@\S+.\S+/.test(email))
+        {
             setError("Le format de l'email n'est pas valide");
             return;
         }
 
-        // Vérification de la conformité des mots de passe
-        if (password !== confirmPassword) {
+        if (password !== confirmPassword)
+        {
             setError("Les mots de passe ne correspondent pas");
             return;
         }
-
-        // Vérification de la conformité du mot de passe (minimum 8 caractères, une majuscule, une minuscule et un chiffre)
-        /*if (!/(?=.\d)(?=.[a-z])(?=.*[A-Z]).{8,}/.test(password)) {
-  setError("Le mot de passe doit contenir minimum 8 caractères, une majuscule, une minuscule et un chiffre");
-  return;
-}*/
 
         const model = {
             name: name,
@@ -77,12 +63,12 @@ const InscriptionComponent = () => {
             .post("https://localhost:7196/api/User/register", model)
             .then((response) => {
                 if (response.status === 200) {
-                    console.log("User registered successfully!");
+                    console.log("Inscription réussi");
                     // Redirect user to login page
                 }
             })
             .catch((error) => {
-                console.log("User registration failed: ", error);
+                console.log("Inscription échoué ", error);
                 setError("L'inscription a échoué");
             });
     };
@@ -92,7 +78,7 @@ const InscriptionComponent = () => {
             <Navbar />
             <div className="container uniqueContainer">
                 <div className="row">
-                    <div className="col-xs-12">
+                  <div className="col-xs-12">
                         <form onSubmit={handleFormSubmit}>
                             {error && (
                                 <div className="alert alert-danger">
@@ -187,12 +173,12 @@ const InscriptionComponent = () => {
                                 S'inscrire
                             </button>
                         </form>
-                    </div>
-                    <Link to={"/connexion"}>
-                      Vous avez déjà un compte? Connectez vous
-                    </Link>
+                  </div>
                 </div>
             </div>
+            <Link to={"/connexion"}>
+              Vous avez déjà un compte? Connectez vous
+            </Link>
         </div>
     );
 };
