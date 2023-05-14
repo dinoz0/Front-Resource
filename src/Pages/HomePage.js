@@ -22,7 +22,7 @@ function HomePage() {
     }
 
     let searchRessource = () => {
-        return axios.get(`https://localhost:7196/api/Resource?title=${searchText}`)
+        return axios.get(`https://localhost:7196/api/Resource/title/${searchText}`)
     }
 
     const handleSearch = () => {

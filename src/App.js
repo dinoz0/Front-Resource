@@ -8,6 +8,7 @@ import UniqueRessourceComponent from './components/UniqueRessourceComponent';
 import AddRessourceComponent from './components/AjoutRessourceComponent';
 import LoginComponent from './components/Connexion';
 import InscriptionComponent from './components/Inscription';
+import ForgotPasswordComponent from './components/PasswordForget';
 
 
 
@@ -24,6 +25,7 @@ function App() {
             <Route path='/ressource/:id' element={<UniqueRessourceComponent />} />
             <Route path='/ajoutRessource' element={<AddRessourceComponent />} />
             <Route path='/connexion' element={<LoginComponent />} />
+            <Route path='/motDePasseOubli' element={<ForgotPasswordComponent />} />
 
             <Route path='/inscription' element={<InscriptionComponent />} />
 
