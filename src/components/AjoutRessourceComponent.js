@@ -63,10 +63,7 @@ const AddRessourceComponent = () => {
             description:description,
             illustration:illustration,
             content:content,
-
-            element:"test",
             relation: {
-
               relation_name:relation
             },
             category: {

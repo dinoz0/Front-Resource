@@ -37,13 +37,13 @@ function Navbar() {
               <a className="nav-link nav" href="ils-parlent-de-nous">Ils parlent de nous !</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link nav" href="inscription">Inscrivez-vous !</a>
+              <a className="nav-link nav" href="\inscription">Inscrivez-vous !</a>
             </li>
             <li className="nav-item">
               <a className="nav-link nav" href="contact">Contact</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link nav" href="ajoutRessource">Ajouter une ressource</a>
+              <a className="nav-link nav" href="\ajoutRessource">Ajouter une ressource</a>
             </li>
           </ul>
           {/* </div> */}
