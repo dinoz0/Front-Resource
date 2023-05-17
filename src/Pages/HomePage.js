@@ -39,12 +39,13 @@ function HomePage() {
         <div className="App">
 
             <Navbar />
-            {ressource.map((ressource) => (
-                <RessourceComponent id={ressource.id} img={ressource.illustration} title={ressource.title} description={ressource.description} />
+            <div>
+                {ressource.map((ressource) => (
+                    <RessourceComponent id={ressource.id} img={ressource.illustration} title={ressource.title} description={ressource.description} />
 
-            ))}
+                ))}
 
-
+            </div>
         </div>
     );
 }
