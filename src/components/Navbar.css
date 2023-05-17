@@ -16,6 +16,10 @@
     color: #fabc5a;
 }
 
+.nav-link nav{
+    color: #fabc5a !important;
+}
+
 .navbar-brand:hover{
     color: white;
 }
