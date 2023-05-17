@@ -43,12 +43,14 @@ const UniqueRessourceComponent = () => {
       <Navbar />
       <div className='container uniqueContainer'>
         <div className='row'>
+          <img className="uniqueImg" src={ressource.illustration} alt="tennis"></img>
           <div className='col-xs-12'>
+
             <div className=' sessionTitleOption'>
               <h1 className='uniqueTitle'>{ressource.title}</h1>
               <p className='pOption'>{ressource.description}</p>
             </div>
-            <img className="uniqueImg" src={ressource.illustration} alt="tennis"></img>
+
 
             <div className='row uniqueContent'>
               <div className='col-xs-12'>
