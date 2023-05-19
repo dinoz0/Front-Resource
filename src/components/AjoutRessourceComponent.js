@@ -134,6 +134,7 @@ const AddRessourceComponent = () => {
                                 <input
                                     type="file"
                                     className="form-control"
+                                    accept=".jpg,.png,.gif"
                                     id="illustration"
                                     value={illustration}
                                     onChange={(e) =>
