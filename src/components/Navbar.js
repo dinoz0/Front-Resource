@@ -23,7 +23,10 @@ function Navbar() {
             </li>
           </ul>
           <span class="navbar-text">
-            <a className="nav-link nav" href="/">Se connecter</a>
+            <a className="nav-link nav" href="../ajoutRessource">Ajouter une ressource</a>
+          </span>
+          <span class="navbar-text">
+            <a className="nav-link nav" href="../connexion">Se connecter</a>
           </span>
         </div>
       </div>
