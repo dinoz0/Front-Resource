@@ -29,4 +29,18 @@ p :link{
     text-decoration:none;
 }
 
+
+
+@media (max-width: 800px) {
+
+    .ressourceTitle{
+        font-size: 14px;
+    }
+
+    .ressourceDescription{
+        font-size: 10px;
+    }
+}
+
+
   

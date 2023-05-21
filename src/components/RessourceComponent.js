@@ -14,8 +14,8 @@ const RessourceComponent = ({ id, title, description, img }) => {
     <a href={hrefId}>
       <div id={id} className="grid" >
         <img src={img} alt="" className="img" ></img>
-        <p>{title}</p>
-        <p>{description}</p>
+        <p className='ressourceTitle'>{title}</p>
+        <p className='ressourceDescription'>{description}</p>
       </div>
     </a>
   )
