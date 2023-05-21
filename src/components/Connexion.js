@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Navbar from '../components/Navbar';
 import './Connexion.css';
@@ -11,7 +11,19 @@ const LoginComponent = () => {
   const [firstname, setFirstname] = useState('');
   const [phonenumber, setPhonenumber] = useState('');*/
   const [error, setError] = useState('');
+  const [token, setToken] = useState('');
 
+  useEffect(() => {
+
+    const storedToken = localStorage.getItem('token');
+
+    if (storedToken) {
+
+      setToken(storedToken);
+
+    }
+
+  }, []);
   const handleFormSubmit = (event) => {
     event.preventDefault();
     if (!username || !password) {
@@ -29,7 +41,7 @@ const LoginComponent = () => {
       .then(response => {
         console.log(response.data);
         if (response.data.token) {
-         
+         setToken(response.data.token);
         }
       })
       .catch(error => {
@@ -37,7 +49,15 @@ const LoginComponent = () => {
         setError("E-mail ou mot de passe incorrect");
       });
   };
+useEffect(() => {
 
+    if (token) {
+
+      localStorage.setItem('token', token);
+
+    }
+
+  }, [token]);
   return (
 
     <div>
@@ -73,7 +93,7 @@ const LoginComponent = () => {
 
 
               <button type='submit' className='btn btn-primary' onClick={() => setError("")}>
-                Login
+                Connexion
               </button>
             </form>
           </div>
