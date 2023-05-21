@@ -29,13 +29,12 @@ const LoginComponent = () => {
       .then(response => {
         console.log(response.data);
         if (response.data.token) {
-          console.log("Vous êtes connecté !");
           // Ajoutez ici le code pour stocker le token dans votre application
         }
       })
       .catch(error => {
         console.log(error);
-        setError("Pseudo ou mot de passe incorrect");
+        setError("E-mail ou mot de passe incorrect");
       });
   };
 
@@ -50,7 +49,7 @@ const LoginComponent = () => {
             <form onSubmit={handleFormSubmit}>
               {error && <div className='alert alert-danger'>{error}</div>}
               <div className='form-group'>
-                <label htmlFor='username'>Pseudo</label>
+                <label htmlFor='username'>E-mail</label>
                 <input
                   type='text'
                   className='form-control'

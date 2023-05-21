@@ -28,7 +28,6 @@ const UniqueRessourceComponent = () => {
     if (flag.current === false) {
       getRessource()
         .then(res => {
-          console.log(res.data)
           setRessource(res.data)
         })
         .catch(err => console.log(err))
@@ -57,7 +56,7 @@ const UniqueRessourceComponent = () => {
                 <p>{ressource.content}</p>
               </div>
             </div>
-             <CommentSection resourceId={idRessource} currentUser={null} />
+            <CommentSection resourceId={idRessource} currentUser={null} />
           </div>
         </div>
       </div>

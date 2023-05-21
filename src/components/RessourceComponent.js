@@ -9,7 +9,6 @@ const RessourceComponent = ({ id, title, description, img }) => {
   const hreft = "/ressource/"
   const hrefId = hreft + rId
 
-  console.log(img)
 
   return (
     <a href={hrefId}>
