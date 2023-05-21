@@ -29,7 +29,7 @@ const LoginComponent = () => {
       .then(response => {
         console.log(response.data);
         if (response.data.token) {
-          // Ajoutez ici le code pour stocker le token dans votre application
+         
         }
       })
       .catch(error => {
