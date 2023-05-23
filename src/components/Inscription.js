@@ -64,7 +64,7 @@ const InscriptionComponent = () => {
             .then((response) => {
                 if (response.status === 200) {
                     console.log("Inscription réussi");
-                    // Redirect user to login page
+                    alert('Inscription réussi');
                 }
             })
             .catch((error) => {

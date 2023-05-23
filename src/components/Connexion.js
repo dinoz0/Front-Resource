@@ -33,6 +33,7 @@ const LoginComponent = () => {
 
     const model = {
       username: username,
+    //  Email: username,  (code ajouté après coup )
       PasswordHash: password,
 
     };
@@ -42,6 +43,7 @@ const LoginComponent = () => {
         console.log(response.data);
         if (response.data.token) {
          setToken(response.data.token);
+          alert('Connexion réussi')
         }
       })
       .catch(error => {

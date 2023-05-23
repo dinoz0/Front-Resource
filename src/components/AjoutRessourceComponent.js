@@ -77,7 +77,9 @@ const AddRessourceComponent = () => {
     axios.post("https://localhost:7196/api/Resource", model)
       .then((response) => {
         if (response.status === 200) {
-          navigate('/')
+
+          alert('Inscription réussi');
+
         }
       })
       .catch((error) => {
@@ -150,7 +152,6 @@ const AddRessourceComponent = () => {
                   value={category}
                   onChange={(e) => setCategory(e.target.value)}
                 >
-                <option value=""> Choisissez la catégorie</option>
                   {categories.map((category) => (
                     <option key={category.id} value={category.id}>
                       {category.category_name}
@@ -166,7 +167,6 @@ const AddRessourceComponent = () => {
                   className="form-control"
                   id="typeR"
                   value={typeR}
-                  <option value=""> Choisissez le type de ressource</option>
 
                   onChange={(e) => setTypeR(e.target.value)}
                 >
@@ -184,7 +184,6 @@ const AddRessourceComponent = () => {
                   className="form-control"
                   id="relation"
                   value={relation}
-                  <option value=""> Choisissez la relation </option>
 
                   onChange={(e) => setRelation(e.target.value)}
                 >

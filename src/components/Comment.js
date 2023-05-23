@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Navbar from '../components/Navbar';
 
-const CommentSection = ({ resourceId, currentUser }) => {
+const CommentSection = ({ resourceId, currentUser /*(Le currentUser devra etre retiré d'ici)*/ }) => {
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
-
+  //const currentUser=localStorage.getItem('token');
+//  console.log(currentUser); (codes  ajoutés après coup)
   useEffect(() => {
     const fetchComments = async () => {
       try {
